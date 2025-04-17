@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $row = $result->fetch_assoc();
 
         if ($password === $row['user_password']) { 
-            // Login success
-            $_SESSION['user_id'] = $row['user_id'];
+            // Save username and password to session for sitewide access
             $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
             header("Location: http://localhost:8080/profile.html");
             exit();
         } else {

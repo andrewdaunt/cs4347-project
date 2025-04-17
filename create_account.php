@@ -32,6 +32,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $insert_stmt->bind_param("ss", $user_username, $user_password);
 
         if ($insert_stmt->execute()) {
+            // Save username and password to session for sitewide access
+            $_SESSION['username'] = $username;
+            $_SESSION['password'] = $password;
             echo "Account created! <a href='login.php'>Log in</a>";
             header("Location: http://localhost:8080/profile.html");
             exit();

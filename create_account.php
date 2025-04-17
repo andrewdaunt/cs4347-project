@@ -12,8 +12,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$message = "";
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_username = $_POST['username'];
     $user_password = $_POST['password'];
@@ -26,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        $message = "Username already exists. Try another.";
+        echo "Username already exists. Try another.";
     } else {
         // Insert new user
         $insert_sql = "INSERT INTO users (username, user_password) VALUES (?, ?)";
@@ -34,11 +32,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $insert_stmt->bind_param("ss", $user_username, $user_password);
 
         if ($insert_stmt->execute()) {
-            $message = "Account created! <a href='login.php'>Log in</a>";
+            echo "Account created! <a href='login.php'>Log in</a>";
             header("Location: http://localhost:8080/profile.html");
             exit();
         } else {
-            $message = "Error: " . $conn->error;
+            echo "Error: " . $conn->error;
         }
 
         $insert_stmt->close();

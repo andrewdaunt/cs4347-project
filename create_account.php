@@ -13,8 +13,8 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_username = $_POST['username'];
-    $user_password = $_POST['password'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
     // Check if username already exists
     $check_sql = "SELECT * FROM users WHERE username = ?";

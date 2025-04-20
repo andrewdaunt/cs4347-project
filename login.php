@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Save username and password to session for sitewide access
             $_SESSION['username'] = $username;
             $_SESSION['password'] = $password;
-            header("Location: http://localhost:8080/profile.html");
+            header("Location: http://localhost:8080/profile.php");
             exit();
         } else {
             // Login fail

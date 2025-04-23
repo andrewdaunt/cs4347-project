@@ -107,6 +107,9 @@ $stmt->close();
     </ul>
   <?php endif; ?>
 
+  <form action="profile.php" method="post">
+    <button type="submit">Profile</button>
+  </form>
 </body>
 </html>
 

@@ -25,8 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        header("Location: http://localhost:8080/register.html");
-        exit();
+        echo "User already exists";
     } else {
         // Insert new user
         $insert_sql = "INSERT INTO users (username, user_password) VALUES (?, ?)";

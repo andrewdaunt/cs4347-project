@@ -1,3 +1,4 @@
+USE movie_app;
 -- USERS table
 CREATE TABLE users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,

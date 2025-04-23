@@ -1,4 +1,5 @@
 <?php
+session_start();
 // Database connection
 $servername = "localhost";
 $db_username = "root";
@@ -24,12 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
-        echo "Username already exists. Try another.";
+        header("Location: http://localhost:8080/register.html");
+        exit();
     } else {
         // Insert new user
         $insert_sql = "INSERT INTO users (username, user_password) VALUES (?, ?)";
         $insert_stmt = $conn->prepare($insert_sql);
-        $insert_stmt->bind_param("ss", $user_username, $user_password);
+        $insert_stmt->bind_param("ss", $username, $password);
 
         if ($insert_stmt->execute()) {
             // Save username and password to session for sitewide access
@@ -50,5 +52,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 $conn->close();
 ?>
-
-<!DOCTYPE

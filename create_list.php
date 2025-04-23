@@ -4,7 +4,7 @@ session_start();
 // DB connection setup
 $servername = "localhost";
 $db_username = "root";
-$db_password = "";
+$db_password = "password";
 $database = "movie_app";
 
 $conn = new mysqli($servername, $db_username, $db_password, $database);
@@ -57,10 +57,12 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Create Movie List</title>
 </head>
+
 <body>
     <h2>Create New Movie List</h2>
     <form method="POST">
@@ -73,4 +75,5 @@ $conn->close();
         <button type="submit">Create List</button>
     </form>
 </body>
+
 </html>

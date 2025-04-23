@@ -4,7 +4,7 @@ session_start();
 // DB connection
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "password";
 $database = "movie_app";
 
 $conn = new mysqli($servername, $username, $password, $database);

@@ -1,23 +1,52 @@
-<!-- admin_dashboard.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Admin Dashboard</title>
-</head>
-<body>
-  <h2>Admin Dashboard</h2>
-</form><form action="#"><label>Add New Movie: <input name="new_movie" type="text" /></label><br /><label>Genre: <input name="genre" type="text" /></label><br /><input type="submit" value="Add Movie" /></form><form action="#"><label>Update Movie Info: (</label><label>Movie Title: <input list="movie_titles" name="movie_title" required="" type="text" />
-<datalist>
-<option value="Movie 1"></option>
-<option value="Movie 2"></option>
-</datalist>
-): Genre: <input name="update_movie" type="text" /></label><br /><input type="submit" value="Update" /></form><form action="#"><label>Remove Movie (</label><label>Movie Title: <input list="movie_titles" name="movie_title" required="" type="text" />
-<datalist>
-<option value="Movie 1"></option>
-<option value="Movie 2"></option>
-</datalist>
-): Genre: <input name="remove_movie" type="text" /></label><br /><input type="submit" value="Remove" /></form>
-</body>
-</html>
 
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+</head>
+
+<body>
+    <h1>Admin Dashboard</h1>
+    <form action="logout.php" method="post">
+        <button type="submit">Logout</button>
+    </form>
+    <hr>
+
+    <form action="admin_dashboard.php" method="POST">
+        <h3>Add New Movie</h3>
+        <label>Movie Title: <input name="new_movie_title" type="text" required /></label><br />
+        <label>Genre ID: <input name="new_movie_genre_id" type="number" required /></label><br /> <input type="submit"
+            name="add_movie_submit" value="Add Movie" />
+    </form>
+
+    <hr>
+
+    <form action="admin_dashboard.php" method="POST">
+        <h3>Update Movie Info</h3>
+        <label>Update Movie:
+            <input list="movie_titles" name="update_movie_title" type="text" required />
+            <datalist id="movie_titles">
+            </datalist>
+        </label><br />
+        <label>Set New Genre ID: <input name="update_movie_genre_id" type="number" required /></label><br /> <input
+            type="submit" name="update_movie_submit" value="Update" />
+    </form>
+
+    <hr>
+
+    <form action="admin_dashboard.php" method="POST">
+        <h3>Remove Movie</h3>
+        <label>Movie Title to Remove:
+            <input list="movie_titles" name="remove_movie_title" type="text" required />
+            <datalist id="movie_titles">
+            </datalist>
+        </label><br />
+        <input type="submit" name="remove_movie_submit" value="Remove" />
+    </form>
+
+    <hr>
+
+</body>
+
+</html>
